@@ -22,7 +22,10 @@ function HomeScreen(props) {
 
         <View style={styles.quizTextContainer}>
           <Text style={styles.quizText}>
-            Discover your perfect plant companion based on your personality! Take the quiz and let nature nurture your well-being.
+            Discover your perfect plant companion based on your personality!
+          </Text>
+          <Text style={styles.quizText}>
+            Take the quiz and let nature nurture your well-being.
           </Text>
         </View>
 
@@ -67,7 +70,10 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    bottom: 100, 
+    bottom: 100,
+    // 70 to keep both phone look nice
+    // 30 to keep joseph phone nice as demo
+    paddingBottom: 30, 
   },
   welcomeContainer: {
     alignItems: 'center',
@@ -85,6 +91,7 @@ const styles = StyleSheet.create({
     fontSize: 20,
     color: 'black',
     textAlign: 'center',
+    paddingHorizontal: 30,
   },
 });
 
