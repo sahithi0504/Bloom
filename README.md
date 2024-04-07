@@ -9,6 +9,12 @@ Welcome to BLOOM - the app that helps you discover your inner plant. Simply take
 - **Firebase Integration**: Utilizes Firebase to create user profiles and store personalized plant recommendations.
 - **API Integration (Stretch Feature)**: Utilizes an API to help users navigate the nearest location where they could go buy the recommended plants.
 - **Chat Section (Stretch Feature)**: Implements a chat section where users can chat with friends and family to get any recommendations on other plant needs.
+- You can mention it in the README.md file by adding a section called "Branch Information" or something similar. Here's an example of how you can structure it:
+
+```markdown
+## Branch Information
+
+The final version of the code is available on the `finalTest` branch, not the `main` branch. To access the latest version of the code, please switch to the `finalTest` branch by following these steps:
 
 ## Installation
 
@@ -25,19 +31,23 @@ Welcome to BLOOM - the app that helps you discover your inner plant. Simply take
 
    ```
 
-3. Install dependencies:
+3. You can now access and work with the code on the `finalTest` branch.
+
+
+
+4. Install dependencies:
 
    ```bash
    npm install
    ```
 
-4. Start the development server:
+5. Start the development server:
 
    ```bash
    npm start
    ```
 
-5. Open the app in your browser:
+6. Open the app in your browser:
 
    ```
    http://localhost:3000
