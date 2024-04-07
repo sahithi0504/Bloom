@@ -1,4 +1,3 @@
-```markdown
 # BLOOM - Plant Recommendation App
 
 Welcome to BLOOM - the app that helps you discover your inner plant. Simply take our quick personality quiz, and let us reveal the plant that best represents you, empowering you to grow and flourish.
@@ -66,3 +65,7 @@ Welcome to BLOOM - the app that helps you discover your inner plant. Simply take
 - Sahithi Rampally (srampa1@lsu.edu)
 - Serene Qasem (sqasem2@lsu.edu)
 - Skyler Dowling (sdowli4@lsu.edu)
+
+ ## Challeneges
+ - Merging Firebase branch with other branches.
+ - Doing the backend setup and creating an algorithm in order to select a plant.
