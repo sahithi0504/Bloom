@@ -1,8 +1,11 @@
 import React, { useState } from 'react';
 import { StyleSheet } from 'react-native';
 import { TouchableOpacity } from 'react-native';
-import { View, Text } from 'react-native';
 import { AntDesign } from '@expo/vector-icons';
+import { View, Text, Button } from 'react-native';
+import {GetQuestionResult, ScoringSystem, getPlantName, getPlantIMG} from '../data/Results.js';
+import ResultsScreen from './ResultsScreen1.js';
+
 
 const QuestionScreen = ({ navigation }) => {
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
@@ -66,6 +69,68 @@ const QuestionScreen = ({ navigation }) => {
     updatedSelectedOptionIndices[currentQuestionIndex] = optionIndex;
     setSelectedOptionIndices(updatedSelectedOptionIndices);
     handleNextQuestion(); // Automatically move to the next question after selecting an option
+ 
+
+  //console.log("question index: " + currentQuestionIndex); 
+  //console.log("option index: " + option); 
+  let data = currentQuestionIndex * 3;
+  data += optionIndex; 
+  let score = (optionIndex + 1) * 2;
+
+    GetQuestionResult(data, score)
+    if (currentQuestionIndex != 9) {
+    handleNextQuestion();
+    }
+    else {
+
+      ScoringSystem()
+      if ("Snake Plant (Sansevieria)" === getPlantName()) {
+        navigation.navigate('Result1')
+      } else if ("Bird of Paradise (Strelitzia)" === getPlantName()) {
+        navigation.navigate('Result2')
+      } else if ("Ponytail Palm (Beaucarnea recurvata)" === getPlantName()) {
+        navigation.navigate('Result3')
+      } else if ("Peace Lily (Spathiphyllum)" === getPlantName()) {
+        navigation.navigate('Result4')
+      } else if ("Fiddle Leaf Fig (Ficus lyrata)" === getPlantName()) {
+        navigation.navigate('Result5')
+      } else if ("Rubber Plant (Ficus elastica)" === getPlantName()) {
+        navigation.navigate('Result6')
+      } else if ("ZZ Plant (Zamioculcas zamiifolia)" === getPlantName()) {
+        navigation.navigate('Result7')
+      } else if ("Spider Plant (Chlorophytum comosum)" === getPlantName()) {
+        navigation.navigate('Result8')
+      } else if ("Cast Iron Plant (Aspidistra elatior)" === getPlantName()) {
+        navigation.navigate('Result9')
+      } else if ("Lavender (Lavandula)" === getPlantName()) {
+        navigation.navigate('Result10')
+      } else if ("Calathea (Calathea spp.)" === getPlantName()) {
+        navigation.navigate('Result11')
+      } else if ("Philodendron (Philodendron spp.)" === getPlantName()) {
+        navigation.navigate('Result12')
+      } else if ("Aloe Vera (Aloe vera)" === getPlantName()) {
+        navigation.navigate('Result13')
+      } else if ("Chamomile (Matricaria chamomilla)" === getPlantName()) {
+        navigation.navigate('Result14')
+      } else if ("English Ivy (Hedera helix)" === getPlantName()) {
+        navigation.navigate('Result15')
+      } else if ("Pothos (Epipremnum aureum)" === getPlantName()) {
+        navigation.navigate('Result16')
+      } else if ("Dracaena (Dracaena spp.)" === getPlantName()) {
+        navigation.navigate('Result17')
+      } else if ("Areca Palm (Dypsis lutescens)" === getPlantName()) {
+        navigation.navigate('Result18')
+      } else if ("Bamboo Palm (Chamaedorea elegans)" === getPlantName()) {
+        navigation.navigate('Result19')
+      } else if ("Succulents (Various species)" === getPlantName()) {
+        navigation.navigate('Result20')
+      } else if ("Boston Fern (Nephrolepis exaltata)" === getPlantName()) {
+        navigation.navigate('Result21')
+      } 
+        
+      }
+     // props.navigation.navigate('Result')}
+    
   };
 
   const renderOptions = () => {
@@ -120,7 +185,7 @@ const QuestionScreen = ({ navigation }) => {
         {isLastQuestion && (
           <TouchableOpacity
             style={[styles.button, styles.resultButton]}
-            onPress={() => navigation.navigate('Result')} // Navigate to ResultsScreen on last question
+            onPress={() => handleOptionSelect(9)} // Navigate to ResultsScreen on last question
           >
             <Text style={styles.buttonText}>View Results</Text>
           </TouchableOpacity>
