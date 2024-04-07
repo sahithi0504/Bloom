@@ -1,10 +1,12 @@
 import React, { useState } from 'react';
 import { StyleSheet } from 'react-native';
 import { TouchableOpacity } from 'react-native';
-import { View, Text, Button } from 'react-native';
+import { View, Text } from 'react-native';
+import { AntDesign } from '@expo/vector-icons';
 
-const QuestionScreen = () => {
+const QuestionScreen = ({ navigation }) => {
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
+  const [selectedOptionIndices, setSelectedOptionIndices] = useState(Array(10).fill(null)); // State to track selected option indices for each question
   const questions = [
     {
       question: "How would you describe your energy levels throughout the day?",
@@ -47,7 +49,7 @@ const QuestionScreen = () => {
       options: ["No specific health concerns", "Stress or anxiety-related issues", "Respiratory conditions (e.g., asthma, allergies)", "Other (please specify)"]
     }
   ];
-  
+
   const handleNextQuestion = () => {
     // Check if it's not the last question
     if (currentQuestionIndex < questions.length - 1) {
@@ -59,24 +61,30 @@ const QuestionScreen = () => {
     setCurrentQuestionIndex(currentQuestionIndex - 1);
   };
 
-  const handleOptionSelect = () => {
-    // Automatically go to the next question after selecting an option
-    handleNextQuestion();
+  const handleOptionSelect = (optionIndex) => {
+    const updatedSelectedOptionIndices = [...selectedOptionIndices];
+    updatedSelectedOptionIndices[currentQuestionIndex] = optionIndex;
+    setSelectedOptionIndices(updatedSelectedOptionIndices);
+    handleNextQuestion(); // Automatically move to the next question after selecting an option
   };
 
   const renderOptions = () => {
     return questions[currentQuestionIndex].options.map((option, index) => (
       <View key={index} style={styles.optionContainer}>
         <TouchableOpacity
-          style={styles.optionButton}
-          onPress={handleOptionSelect}
+          style={[
+            styles.optionButton,
+            selectedOptionIndices[currentQuestionIndex] === index && styles.selectedOption, // Apply selected style if index matches
+          ]}
+          onPress={() => handleOptionSelect(index)}
         >
           <Text style={styles.optionText}>{option}</Text>
         </TouchableOpacity>
-        {currentQuestionIndex === index && <View style={styles.selectedDot} />}
       </View>
     ));
   };
+
+  const isLastQuestion = currentQuestionIndex === questions.length - 1;
 
   return (
     <View style={styles.container}>
@@ -91,20 +99,32 @@ const QuestionScreen = () => {
         {renderOptions()}
       </View>
       <View style={styles.buttonContainer}>
+        { currentQuestionIndex > 0 && (
         <TouchableOpacity
           style={[styles.button, styles.previousButton]}
           onPress={handlePreviousQuestion}
           disabled={currentQuestionIndex === 0}
         >
-          <Text style={styles.buttonText}>Previous</Text>
+          <Text style={styles.buttonText}><AntDesign name="leftcircleo" size={40} color="black" /></Text>
         </TouchableOpacity>
+        )}
+        {currentQuestionIndex < questions.length - 1 && (
         <TouchableOpacity
           style={[styles.button, styles.nextButton]}
           onPress={handleNextQuestion}
           disabled={currentQuestionIndex === questions.length - 1}
         >
-          <Text style={styles.buttonText}>Next</Text>
+          <Text style={styles.buttonText}><AntDesign name="rightcircleo" size={40} color="black" /></Text>
         </TouchableOpacity>
+        )}
+        {isLastQuestion && (
+          <TouchableOpacity
+            style={[styles.button, styles.resultButton]}
+            onPress={() => navigation.navigate('Result')} // Navigate to ResultsScreen on last question
+          >
+            <Text style={styles.buttonText}>View Results</Text>
+          </TouchableOpacity>
+        )}
       </View>
     </View>
   );
@@ -168,15 +188,12 @@ const styles = StyleSheet.create({
     borderRadius: 15,
     alignItems: 'center',
   },
-  previousButton: {
-    backgroundColor: '#3e673b',
-  },
-  nextButton: {
-    backgroundColor: '#20b2aa',
-  },
   buttonText: {
     fontSize: 16,
     color: '#FFFFFF',
+  },
+  resultButton: {
+    backgroundColor: '#20b2aa', // Change to your desired color
   },
 });
 
