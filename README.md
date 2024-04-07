@@ -21,7 +21,8 @@ Welcome to BLOOM - the app that helps you discover your inner plant. Simply take
 2. Navigate to the project directory:
 
    ```bash
-   cd Bloom
+   git checkout finalTest
+
    ```
 
 3. Install dependencies:
