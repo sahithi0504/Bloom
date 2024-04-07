@@ -65,7 +65,7 @@ Welcome to BLOOM - the app that helps you discover your inner plant. Simply take
 - Joseph Aycock (jaycoc4@lsu.edu)
 - Sahithi Rampally (srampa1@lsu.edu)
 - Serene Qasem (sqasem2@lsu.edu)
-- Skyler DOWLING (sdowli4@lsu.edu)
+- Skyler Dowling (sdowli4@lsu.edu)
 
 ## License
 
