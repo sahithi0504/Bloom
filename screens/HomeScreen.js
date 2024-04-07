@@ -1,8 +1,14 @@
-import { Button, StyleSheet, Text, View, ImageBackground, Image } from "react-native";
+import { Button, StyleSheet, Text, View, ImageBackground, Image, TouchableOpacity, Modal } from "react-native";
 import React from "react";
+import { MaterialIcons } from '@expo/vector-icons';
+import { useState } from "react";
 
 function HomeScreen(props) {
+
+  const [modalVisible, setModalVisible] = useState(false);
+
   return (
+
     <View style={styles.container}> 
       <ImageBackground 
         source={require('../assets/backgroundHomeScreen.jpg')}
@@ -22,20 +28,53 @@ function HomeScreen(props) {
 
         <View style={styles.quizTextContainer}>
           <Text style={styles.quizText}>
-            Discover your perfect plant companion based on your personality!
-          </Text>
-          <Text style={styles.quizText}>
-            Take the quiz and let nature nurture your well-being.
+            Where Mental Health Meets Nature Healing Touch
           </Text>
         </View>
 
-        <View style={styles.buttonContainer}>
-          <Button 
-            title="Start Quiz" 
-            onPress={() => props.navigation.navigate('Quiz')}
-            color="white" // Set button text color to white
-          />
+        <View style={styles.iconContainer}>
+          <MaterialIcons name="info-outline" size={30} color="black"/>
         </View>
+
+        <TouchableOpacity
+          style={styles.buttonContainer}
+          onPress={() => props.navigation.navigate('Quiz')}
+        >
+          <Text style={styles.buttonText}>
+            Let's Bloom! 🌸
+          </Text>
+        </TouchableOpacity>
+
+        <TouchableOpacity
+          style={styles.iconContainer}
+          onPress={() => setModalVisible(true)}
+        >
+          <MaterialIcons name="info-outline" size={30} color="black"/>
+        </TouchableOpacity>
+
+        <Modal
+          animationType="slide"
+          transparent={true}
+          visible={modalVisible}
+          onRequestClose={() => {
+            setModalVisible(false);
+          }}
+        >
+          <View style={styles.modalContainer}>
+            <View style={styles.modalContent}>
+              <Text style={styles.modalText}>
+                Discover your perfect plant companion based on your personality! Take the quiz and let nature nurture your well-being.
+                </Text>
+              <TouchableOpacity
+                style={styles.closeButton}
+                onPress={() => setModalVisible(false)}
+              >
+                <Text style={styles.closeButtonText}>Close</Text>
+              </TouchableOpacity>
+            </View>
+          </View>
+        </Modal>
+
       </ImageBackground>
     </View>
   );
@@ -53,14 +92,19 @@ const styles = StyleSheet.create({
   buttonContainer: {
     position: 'absolute',
     bottom: 130, // Adjust this value as needed
-    paddingVertical: 20,
+    paddingVertical: 30,
     paddingHorizontal: 30,
-    borderRadius: 50,
+    borderRadius: 30,
     width: '80%', // Set width of the button container
     alignSelf: 'center', // Center the button container horizontally
-    backgroundColor: 'rgba(0, 0, 0, 0.5)', // Semi-transparent black background
+    backgroundColor: 'rgba(53, 161, 99, 1)',
     justifyContent: 'center',
     alignItems: 'center',
+  },
+  buttonText: {
+    color: 'white',
+    fontSize: 24,
+    fontWeight: 'bold', // Make the text bold
   },
   logo: {
     width: 300,
@@ -92,6 +136,42 @@ const styles = StyleSheet.create({
     color: 'black',
     textAlign: 'center',
     paddingHorizontal: 30,
+  },
+  iconContainer: {
+    position: 'absolute',
+    top: 60,
+    right: 20,
+    zIndex: 1,
+  },
+  modalContainer: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: 'rgba(0, 0, 0, 0.5)', 
+  },
+  modalContent: {
+    backgroundColor: 'white',
+    paddingHorizontal: 50,
+    paddingVertical: 50,
+    borderRadius: 20,
+    alignItems: 'center',
+    width: '80%',
+  },
+  modalText: {
+    fontSize: 18,
+    marginBottom: 20,
+    textAlign: 'center',
+  },
+  closeButton: {
+    backgroundColor: 'rgba(53, 161, 99, 1)',
+    paddingHorizontal: 20,
+    paddingVertical: 10,
+    borderRadius: 5,
+    bottom: -20,
+  },
+  closeButtonText: {
+    color: 'white',
+    fontSize: 18,
   },
 });
 
