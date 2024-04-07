@@ -3,8 +3,10 @@ import { StyleSheet } from 'react-native';
 import { TouchableOpacity } from 'react-native';
 import { View, Text } from 'react-native';
 import { AntDesign } from '@expo/vector-icons';
+import { NavigationContainer } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
-const QuestionScreen = ({ navigation }) => {
+const QuestionScreen = ({navigation}) => {
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [selectedOptionIndices, setSelectedOptionIndices] = useState(Array(10).fill(null)); // State to track selected option indices for each question
   const questions = [
@@ -120,7 +122,7 @@ const QuestionScreen = ({ navigation }) => {
         {isLastQuestion && (
           <TouchableOpacity
             style={[styles.button, styles.resultButton]}
-            onPress={() => navigation.navigate('Result')} // Navigate to ResultsScreen on last question
+            onPress={() => navigation.navigate('Result')}
           >
             <Text style={styles.buttonText}>View Results</Text>
           </TouchableOpacity>
