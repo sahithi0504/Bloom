@@ -66,8 +66,3 @@ Welcome to BLOOM - the app that helps you discover your inner plant. Simply take
 - Sahithi Rampally (srampa1@lsu.edu)
 - Serene Qasem (sqasem2@lsu.edu)
 - Skyler Dowling (sdowli4@lsu.edu)
-
-## License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-```
