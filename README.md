@@ -1,18 +1,13 @@
-Certainly! Here's the complete README.md file:
-
 ```markdown
-# Plant Recommendation App
+# BLOOM - Plant Recommendation App
 
-Welcome to the Plant Recommendation App! This app helps users discover the perfect indoor plants based on their preferences and lifestyle.
+Welcome to BLOOM - the app that helps you discover your inner plant. Simply take our quick personality quiz, and let us reveal the plant that best represents you, empowering you to grow and flourish.
 
 ## Features
 
 - **Plant Quiz**: Users can take a quiz to determine their ideal indoor plants based on their energy levels, environment preferences, stress coping mechanisms, and more.
-- **Plant Suggestions**: After completing the quiz, users receive personalized plant recommendations along with descriptions and care tips.
+- **Plant Suggestions**: After completing the quiz, users receive personalized plant recommendations along with descriptions.
 - **Firebase Integration**: Utilizes Firebase to create user profiles and store personalized plant recommendations.
-- **User Profiles**: Users can sign up or log in to the app to access their personalized plant recommendations.
-- **Location Navigation**: Users can find nearby locations where they can purchase their recommended plants.
-- **Customizable Profiles**: Users can customize their profiles with their plant preferences and care tips.
 - **API Integration (Stretch Feature)**: Utilizes an API to help users navigate the nearest location where they could go buy the recommended plants.
 - **Chat Section (Stretch Feature)**: Implements a chat section where users can chat with friends and family to get any recommendations on other plant needs.
 
@@ -21,13 +16,13 @@ Welcome to the Plant Recommendation App! This app helps users discover the perfe
 1. Clone the repository:
 
    ```bash
-   git clone https://github.com/your-username/plant-recommendation-app.git
+   git clone https://github.com/sahithi0504/Bloom
    ```
 
 2. Navigate to the project directory:
 
    ```bash
-   cd plant-recommendation-app
+   cd Bloom
    ```
 
 3. Install dependencies:
@@ -52,9 +47,10 @@ Welcome to the Plant Recommendation App! This app helps users discover the perfe
 
 - React Native
 - React Navigation
+- Github
 - VSCode
-- GitHub
 - Firebase Authentication
+- HTML
 - CSS Modules
 
 ## Usage
@@ -62,11 +58,14 @@ Welcome to the Plant Recommendation App! This app helps users discover the perfe
 1. Sign up or log in to the app.
 2. Take the plant quiz to receive personalized recommendations.
 3. Explore the suggested plants and read their descriptions.
-
+4. See the image of the plant for your reference 
 
 ## Contributors
 
-- Joesph Aycock
+- Joseph Aycock (jaycoc4@lsu.edu)
+- Sahithi Rampally (srampa1@lsu.edu)
+- Serene Qasem (sqasem2@lsu.edu)
+- Skyler DOWLING (sdowli4@lsu.edu)
 
 ## License
 
