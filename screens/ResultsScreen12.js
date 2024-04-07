@@ -1,47 +1,53 @@
 import { Button, StyleSheet, Text, View, ImageBackground, Image } from "react-native";
 import React from "react";
+import {GetQuestionResult, ScoringSystem, getPlantName, getPlantIMG} from '../data/Results.js';
 
 
 
 
-function HomeScreen(props) {
-  return (
-    <View style={styles.container}> 
-      <ImageBackground 
-        source={require('../assets/backgroundHomeScreen.jpg')}
-        resizeMode='fill'
-        style={styles.backgroundImage}
-      >
-        <View style={styles.logoContainer}>
-          <Image
-            source={require('../assets/bloomLogoHD.png')}
-            style={styles.logo}
-          />
-        </View>
+let i = '../assets/plants/Aloe_Vera.jpg';
 
-        <View style={styles.welcomeContainer}>
-          <Text style={styles.welcomeText}>🌱 Welcome to Bloom! 🌱</Text>
-        </View>
 
-        <View style={styles.quizTextContainer}>
-          <Text style={styles.quizText}>
-            Discover your perfect plant companion based on your personality!
-          </Text>
-          <Text style={styles.quizText}>
-            Take the quiz and let nature nurture your well-being.
-          </Text>
-        </View>
 
-        <View style={styles.buttonContainer}>
-          <Button 
-            title="Start Quiz" 
-            onPress={() => props.navigation.navigate('Quiz')}
-            color="white" // Set button text color to white
-          />
-        </View>
-      </ImageBackground>
-    </View>
-  );
+function ResultScreen(props) {
+ScoringSystem();
+let plantname = getPlantName();
+
+
+return (
+  <View style={styles.container}> 
+    <ImageBackground 
+      source={require('../assets/ResultScreenbg.jpg')}
+      resizeMode='fill'
+      style={styles.backgroundImage}
+    >
+      <View style={styles.logoContainer}>
+        <Image
+          source={require(i)}
+          style={styles.imageStyle}
+        />
+      </View>
+
+      <View style={styles.welcomeContainer}>
+        <Text style={styles.welcomeText}>🌱 Your Plant is {plantname}! 🌱</Text>
+      </View>
+
+      <View style={styles.quizTextContainer}>
+        <Text style={styles.quizText}>
+          { getPlantIMG()}
+        </Text>
+      </View>
+
+      <View style={styles.buttonContainer}>
+        <Button 
+          title="Go back to Home" 
+          onPress={() => props.navigation.navigate('Home')}
+          color="white" // Set button text color to white
+        />
+      </View>
+    </ImageBackground>
+  </View>
+);
 }
 
 const styles = StyleSheet.create({
@@ -74,6 +80,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     bottom: 100,
+    
     // 70 to keep both phone look nice
     // 30 to keep joseph phone nice as demo
     paddingBottom: 30, 
@@ -89,6 +96,7 @@ const styles = StyleSheet.create({
   quizTextContainer: {
     alignItems: 'center',
     bottom: 350,
+    color: 'white'
   },
   quizText: {
     fontSize: 20,
@@ -98,4 +106,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default HomeScreen;
+export default ResultScreen;
