@@ -17,7 +17,7 @@ return (
   <View style={styles.container}> 
     <ImageBackground 
       source={require('../assets/ResultScreenbg.jpg')}
-      resizeMode='fill'
+      resizeMode='stretch'
       style={styles.backgroundImage}
     >
       <View style={styles.logoContainer}>
@@ -53,7 +53,7 @@ return (
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "black",
+    backgroundColor: "white",
   },
   backgroundImage: {
     flex: 1,
@@ -101,7 +101,7 @@ const styles = StyleSheet.create({
   },
   quizText: {
     fontSize: 20,
-    color: 'black',
+    color: 'white',
     textAlign: 'center',
     paddingHorizontal: 30,
   },

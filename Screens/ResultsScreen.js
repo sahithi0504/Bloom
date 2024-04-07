@@ -113,14 +113,17 @@ const styles = StyleSheet.create({
     borderRadius: 10,
     marginBottom: 10,
     width: '100%',
+    color: 'white',
   },
   plantName: {
     fontSize: 18,
     fontWeight: 'bold',
     marginBottom: 5,
+    color: 'white',
   },
   plantDescription: {
     fontSize: 16,
+    color: 'white',
   },
 });
 
