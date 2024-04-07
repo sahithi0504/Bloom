@@ -11,7 +11,7 @@ Welcome to BLOOM - the app that helps you discover your inner plant. Simply take
 - **Chat Section (Stretch Feature)**: Implements a chat section where users can chat with friends and family to get any recommendations on other plant needs.
 - You can mention it in the README.md file by adding a section called "Branch Information" or something similar. Here's an example of how you can structure it:
 
-```markdown
+`
 ## Branch Information
 
 The final version of the code is available on the `finalTest` branch, not the `main` branch. To access the latest version of the code, please switch to the `finalTest` branch by following these steps:
@@ -20,7 +20,7 @@ The final version of the code is available on the `finalTest` branch, not the `m
 
 1. Clone the repository:
 
-   ```bash
+   ```
    git clone https://github.com/sahithi0504/Bloom
    ```
 
