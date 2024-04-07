@@ -1,12 +1,22 @@
 import React, { useState } from 'react';
 import { StyleSheet } from 'react-native';
 import { TouchableOpacity } from 'react-native';
+<<<<<<< HEAD
 import { View, Text, Button } from 'react-native';
 import {GetQuestionResult, ScoringSystem, getPlantName, getPlantIMG} from '../data/Results.js';
 import ResultsScreen from './ResultsScreen1.js';
 
 const QuestionScreen = (props) => {
+=======
+import { View, Text } from 'react-native';
+import { AntDesign } from '@expo/vector-icons';
+import { NavigationContainer } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+
+const QuestionScreen = ({navigation}) => {
+>>>>>>> 10c4b95d38276b672e8bb9db6beb20c7cc548805
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
+  const [selectedOptionIndices, setSelectedOptionIndices] = useState(Array(10).fill(null)); // State to track selected option indices for each question
   const questions = [
     {
       question: "How would you describe your energy levels throughout the day?",
@@ -49,7 +59,7 @@ const QuestionScreen = (props) => {
       options: ["No specific health concerns", "Stress or anxiety-related issues", "Respiratory conditions (e.g., asthma, allergies)", "Other (please specify)"]
     }
   ];
-  
+
   const handleNextQuestion = () => {
     // Check if it's not the last question
     if (currentQuestionIndex < questions.length - 1) {
@@ -61,6 +71,7 @@ const QuestionScreen = (props) => {
     setCurrentQuestionIndex(currentQuestionIndex - 1);
   };
 
+<<<<<<< HEAD
   const handleOptionSelect = (option) => {
 
   //console.log("question index: " + currentQuestionIndex); 
@@ -125,24 +136,40 @@ const QuestionScreen = (props) => {
       }
      // props.navigation.navigate('Result')}
     
+=======
+  const handleOptionSelect = (optionIndex) => {
+    const updatedSelectedOptionIndices = [...selectedOptionIndices];
+    updatedSelectedOptionIndices[currentQuestionIndex] = optionIndex;
+    setSelectedOptionIndices(updatedSelectedOptionIndices);
+    handleNextQuestion(); // Automatically move to the next question after selecting an option
+>>>>>>> 10c4b95d38276b672e8bb9db6beb20c7cc548805
   };
 
   const renderOptions = () => {
     return questions[currentQuestionIndex].options.map((option, index) => (
       <View key={index} style={styles.optionContainer}>
         <TouchableOpacity
+<<<<<<< HEAD
           style={styles.optionButton}
           onPress={(event) => {
             // Discard event
             handleOptionSelect(index)
           }}
+=======
+          style={[
+            styles.optionButton,
+            selectedOptionIndices[currentQuestionIndex] === index && styles.selectedOption, // Apply selected style if index matches
+          ]}
+          onPress={() => handleOptionSelect(index)}
+>>>>>>> 10c4b95d38276b672e8bb9db6beb20c7cc548805
         >
           <Text style={styles.optionText}>{option}</Text>
         </TouchableOpacity>
-        {currentQuestionIndex === index && <View style={styles.selectedDot} />}
       </View>
     ));
   };
+
+  const isLastQuestion = currentQuestionIndex === questions.length - 1;
 
   return (
     <View style={styles.container}>
@@ -157,20 +184,32 @@ const QuestionScreen = (props) => {
         {renderOptions()}
       </View>
       <View style={styles.buttonContainer}>
+        { currentQuestionIndex > 0 && (
         <TouchableOpacity
           style={[styles.button, styles.previousButton]}
           onPress={handlePreviousQuestion}
           disabled={currentQuestionIndex === 0}
         >
-          <Text style={styles.buttonText}>Previous</Text>
+          <Text style={styles.buttonText}><AntDesign name="leftcircleo" size={40} color="black" /></Text>
         </TouchableOpacity>
+        )}
+        {currentQuestionIndex < questions.length - 1 && (
         <TouchableOpacity
           style={[styles.button, styles.nextButton]}
           onPress={handleNextQuestion}
           disabled={currentQuestionIndex === questions.length - 1}
         >
-          <Text style={styles.buttonText}>Next</Text>
+          <Text style={styles.buttonText}><AntDesign name="rightcircleo" size={40} color="black" /></Text>
         </TouchableOpacity>
+        )}
+        {isLastQuestion && (
+          <TouchableOpacity
+            style={[styles.button, styles.resultButton]}
+            onPress={() => navigation.navigate('Result')}
+          >
+            <Text style={styles.buttonText}>View Results</Text>
+          </TouchableOpacity>
+        )}
       </View>
     </View>
   );
@@ -234,15 +273,12 @@ const styles = StyleSheet.create({
     borderRadius: 15,
     alignItems: 'center',
   },
-  previousButton: {
-    backgroundColor: '#3e673b',
-  },
-  nextButton: {
-    backgroundColor: '#20b2aa',
-  },
   buttonText: {
     fontSize: 16,
     color: '#FFFFFF',
+  },
+  resultButton: {
+    backgroundColor: '#20b2aa', // Change to your desired color
   },
 });
 

@@ -2,6 +2,7 @@ import HomeScreen from './screens/HomeScreen';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import QuestionScreen from './screens/QuestionScreen';
+<<<<<<< HEAD
 import ResultsScreen1 from './screens/ResultsScreen1';
 import ResultsScreen2 from './screens/ResultsScreen2';
 import ResultsScreen3 from './screens/ResultsScreen3';
@@ -23,15 +24,21 @@ import ResultsScreen18 from './screens/ResultsScreen18';
 import ResultsScreen19 from './screens/ResultsScreen19';
 import ResultsScreen20 from './screens/ResultsScreen20';
 import ResultsScreen21 from './screens/ResultsScreen21';
+=======
+import ResultsScreen from "./screens/ResultsScreen";
+import { StatusBar } from 'expo-status-bar';
+import React from 'react';
+import { StyleSheet, Text, View } from 'react-native';
+>>>>>>> 10c4b95d38276b672e8bb9db6beb20c7cc548805
 
 function App() {
 
   const Stack = createNativeStackNavigator();
-  // const Tab = createBottomTabNavigator();
 
   return (
     <NavigationContainer>
       <Stack.Navigator initialRouteName="Home">
+<<<<<<< HEAD
         <Stack.Screen name="Home" component={HomeScreen} options={{headerShown: false, tabBarVisible: false}}/>
         <Stack.Screen name="Quiz" component={QuestionScreen} options={{headerShown: true}}/>
       
@@ -56,9 +63,43 @@ function App() {
         <Stack.Screen name="Result19" component={ResultsScreen19} options={{headerShown: true}}/>
         <Stack.Screen name="Result20" component={ResultsScreen20} options={{headerShown: true}}/>
         <Stack.Screen name="Result21" component={ResultsScreen21} options={{headerShown: true}}/>
+=======
+
+        <Stack.Screen 
+          name="Home" 
+          component={HomeScreen} 
+          options={{headerShown: false, tabBarVisible: false}}
+        />
+
+        <Stack.Screen 
+          name="Quiz" 
+          component={QuestionScreen} 
+          options={{
+            headerShown: true,
+            headerTitle: "Personality Quiz",
+            headerStyle: {
+              backgroundColor: "#bfd9be",
+              headerStatusBarHeight: 100,
+            },
+            headerTitleStyle: {fontSize: 24},
+          }}
+        />
+
+        <Stack.Screen 
+          name="Result" 
+          component={ResultsScreen} 
+          options={{
+            headerShown: true,
+          }}
+        />
+>>>>>>> 10c4b95d38276b672e8bb9db6beb20c7cc548805
       </Stack.Navigator>
     </NavigationContainer>
   );
 }
 
+<<<<<<< HEAD
 export default App;
+=======
+export default App;
+>>>>>>> 10c4b95d38276b672e8bb9db6beb20c7cc548805
