@@ -1,3 +1,4 @@
+import { Button, StyleSheet, Text, View, ImageBackground, Image, TouchableOpacity, Modal } from "react-native";
 import React from "react";
 import { MaterialIcons } from '@expo/vector-icons';
 import { useState } from "react";
