@@ -12,7 +12,7 @@ function HomeScreen(props) {
     <View style={styles.container}> 
       <ImageBackground 
         source={require('../assets/backgroundHomeScreen.jpg')}
-        resizeMode='fill'
+        resizeMode='stretch'
         style={styles.backgroundImage}
       >
         <View style={styles.logoContainer}>

@@ -50,6 +50,8 @@ function App() {
           component={LoginScreen} 
         />
 
+        
+
       </Stack.Navigator>
     </NavigationContainer>
   );
