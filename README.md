@@ -26,13 +26,12 @@ The final version of the code is available on the `finalTest` branch, not the `m
 
 2. Navigate to the project directory:
 
-   ```bash
+   ```
    git checkout finalTest
 
    ```
 
 3. You can now access and work with the code on the `finalTest` branch.
-
 
 
 4. Install dependencies:
