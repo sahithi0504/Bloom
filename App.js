@@ -7,7 +7,6 @@ import { StatusBar } from 'expo-status-bar';
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import LoginScreen from './src/LoginScreen';
-import HomeScreen from './src/HomeScreen';
 
 function App() {
 
@@ -15,7 +14,7 @@ function App() {
 
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName="Home">
+      <Stack.Navigator initialRouteName="Login">
 
         <Stack.Screen 
           name="Home" 
@@ -44,8 +43,12 @@ function App() {
             headerShown: true
           }}
         />
-        <Stack.Screen options={{ headerShown: false }} name="Login" component={LoginScreen} />
-        <Stack.Screen name="Home" component={HomeScreen} />
+
+        <Stack.Screen 
+          options={{ headerShown: false }} 
+          name="Login" 
+          component={LoginScreen} 
+        />
 
       </Stack.Navigator>
     </NavigationContainer>
